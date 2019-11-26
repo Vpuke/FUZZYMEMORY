@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.cards{
+    width: 70vw;
+    background-color:grey;
+    margin:70px auto;
+    display:flex;
+    flex-wrap: wrap;
+    
+}
+
+.cards *{
+    height:70px;
+    width:70px;
+    display:flex;
+}
