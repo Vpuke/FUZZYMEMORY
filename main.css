@@ -1,25 +1,103 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 
 }
 
-body{
+body {
+    /* background: url(https://media.giphy.com/media/6Egwsh5J2kvhmXALVu/giphy.gif) no-repeat center center;
+    background-size: cover; */
+    background-color:white;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+h1{
+    color: black;
 }
 
-.cards{
-    width: 70vw;
-    background-color:grey;
-    margin:70px auto;
-    display:flex;
-    flex-wrap: wrap;
+.board {
+    height: 80%;
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    perspective: 1000px;
+    -webkit-perspective: 1000px;
+  }
+
+/* .card{
+    width: 90%;
+    height: 90%;
+    position: relative;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .4s;
+} */
+
+.card{
+    width: 90%;
+    height: 90%;
+    position: relative;
+    -ms-transform: scale(1);
+        transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    -webkit-transition: -webkit-transform .4s;
+    transition: -webkit-transform .4s;
+    -o-transition: transform .4s;
+    transition: transform .4s;
+    transition: transform .4s, -webkit-transform .4s;
+}
+
+/* .card:active{
+    transform: scale(0.97);
+    -webkit-transform: scale(0.97);
+    -moz-transform: scale(0.97);
+    transition: transform .5s;
+} */
+
+.card:active{
+    -ms-transform: scale(0.97);
+        transform: scale(0.97);
+    -webkit-transform: scale(0.97);
+    -moz-transform: scale(0.97);
+    -webkit-transition: -webkit-transform .5s;
+    transition: -webkit-transform .5s;
+    -o-transition: transform .5s;
+    transition: transform .5s;
+    transition: transform .5s, -webkit-transform .5s;
+}
+
+
+.back-side-card, 
+.front-side-card{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  opacity: .99;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+    -webkit-transform:rotateY(180deg);
+    -moz-transform: rotateY(180deg);
     
-}
+  }
 
-.cards *{
-    height:70px;
-    width:70px;
-    display:flex;
-}
+  .front-side-card {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+  }
+  
