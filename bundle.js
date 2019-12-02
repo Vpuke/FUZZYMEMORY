@@ -7,6 +7,7 @@ let memoryCardsArray = [
     { image:"./images/dog.webp" },
     { image:"./images/office.webp" },
     { image:"./images/cutit.webp" },
+
 ];
 
 // CREATE MEMORY CARDS
@@ -15,6 +16,11 @@ const restartButton = document.querySelector('.replay-button');
 const board = document.querySelector(".board");
 let isFlipped, disable = false;
 let first, second;
+
+// CALLING SHUFFLE 
+shuffle(memoryCardsArray);
+// RESTART GAME ADDED TO BUTTON ON CLICK
+restartButton.addEventListener('click', restartGame);
 
 const stringToHTML = str => {
     const div = document.createElement("div");
@@ -37,11 +43,11 @@ const generateMemoryCard = () => {
     });
 };
 
+// I THINK THIS GENERATES PROBLEMS WITH SHUFFLE FUNCTION
 generateMemoryCard();
 generateMemoryCard();
 
 // SHUFFLE FUNCTION FISHER YATES
-
 
 function shuffle(array){
         let j, x, i;
@@ -55,15 +61,12 @@ function shuffle(array){
             return array;
         }
         
-// CALLING SHUFFLE 
-shuffle(memoryCardsArray);
-
 // ADDING CLASS TO CARD
         
 const cards = [...document.querySelectorAll('.card')];
 const flippedCards = [...document.querySelectorAll('.front-side-card')];
         
-// FUNCTION TO ADD CLASS TO FLIPPED CARD
+// FUNCTION TO ADD CLASS TO FLIPPED CARD AND SEE IF DATASET IS A MATCH.
         
 function handleClick() {
     if(disable || this === second) return
@@ -102,12 +105,12 @@ function noMatch(){
 
 // OSÄKER PÅ DENNA FUNKTIONEN, det shufflas inte och vet inte om jag ska göra mer?!
 
-function playGame(){
-    cards.forEach((card, i) =>{
-        card.addEventListener('click', handleClick);
-        shuffle(memoryCardsArray);
-    })
-}
+// function playGame(){
+//     cards.forEach((card, i) =>{
+//         card.addEventListener('click', handleClick);
+//         shuffle(memoryCardsArray);
+//     })
+// }
 
 
 // CLEARS THE PREVIOUS CLICKS
@@ -123,10 +126,26 @@ function clear(){
 
 function restartGame() {
     cards.forEach((card) => {
+    shuffle(memoryCardsArray);
     card.classList.remove('flip');
     card.addEventListener('click', handleClick);
-    shuffle(idArray);
-    playGame();
+    // playGame();
     clear();
     })
 }
+
+
+//
+// PROBLEM
+//
+// REPLAY SHUFFLAR INTE OM SPELET:
+//
+// SHUFFLE GÖR SÅ ATT BILDERNA LIGGER LIKADANT PÅ BÅDA RADERNA
+//
+// SKAPA EN PLAYGAME BUTTON SÅ SPELPLANEN KOMMER UT
+//
+// SKAPA NÅGOT SOM VET OM DU VINNER ELLER INTE.
+//
+//
+//
+
