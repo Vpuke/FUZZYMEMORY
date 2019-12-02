@@ -13,6 +13,8 @@ let memoryCardsArray = [
 
 const restartButton = document.querySelector('.replay-button');
 const board = document.querySelector(".board");
+let isFlipped, disable = false;
+let first, second;
 
 const stringToHTML = str => {
     const div = document.createElement("div");
@@ -21,7 +23,7 @@ const stringToHTML = str => {
 };
 
 const createMemoryCard = ( image, index) => {
-    return `<div class="card" data-cardIndex="${index}">
+    return `<div class="card" data-id="${index}">
     <img class="front-side-card" src="${image}">
     <img class="back-side-card" src ="./images/hypnotic.jpg">
     </div>`;
@@ -41,44 +43,89 @@ generateMemoryCard();
 // SHUFFLE FUNCTION FISHER YATES
 
 
-// function shuffle(array){
-    //     let j, x, i;
-    //     for(i = array.length - 1; i > 0; i--){
-        //         j = Math.floor(Math.random() * (i + 1));
-        //         x = array[i];
-        //         array[i] = array[j];
-        //         array[j] = x;
-        //     }
+function shuffle(array){
+        let j, x, i;
+        for(i = array.length - 1; i > 0; i--){
+                j = Math.floor(Math.random() * (i + 1));
+                x = array[i];
+                array[i] = array[j];
+                array[j] = x;
+            }
         
-        //     return array;
-        // }
-        
-        // let myArray = ['0', '1', '2', '3', '4', '5', '6', '7'];
-        // shuffle(memoryCardsArray);
-        
-        
-        // ADDING CLASS TO CARD
-        
-        const cards = [...document.querySelectorAll('.card')];
-        const flippedCards = [...document.querySelectorAll('.front-side-card')];
-        
-        // FUNTION TO ADD CLASS TO FLIPPED CARD
-        
-        function handleClick() {
-            this.classList.toggle('flip')  
+            return array;
         }
         
-        cards.forEach((card, i) => {
-            card.addEventListener('click', handleClick)
-        })
-        
+// CALLING SHUFFLE 
+shuffle(memoryCardsArray);
 
-// SHUFFLEFUNCTION USED BY MARINA-FERREIRA
-
-        (function shuffle(){
-            card.forEach(cards => {
-                let randomPos = Math.floor(Math.random() * 7);
-                cards.style.order = randomPos;
-            });
-        })();
+// ADDING CLASS TO CARD
         
+const cards = [...document.querySelectorAll('.card')];
+const flippedCards = [...document.querySelectorAll('.front-side-card')];
+        
+// FUNCTION TO ADD CLASS TO FLIPPED CARD
+        
+function handleClick() {
+    if(disable || this === second) return
+    this.classList.toggle('flip');
+    if(!isFlipped){
+        isFlipped = true;
+        first = this;
+        return
+    }
+    second = this;
+    first.dataset.id === second.dataset.id ? match() : noMatch();  
+}
+        
+cards.forEach((card, i) => {
+    card.addEventListener('click', handleClick)
+})
+        
+// CHECKS IF THE CARDS ARE A MATCH
+
+function match() {
+    first.removeEventListener('click', handleClick);
+    second.removeEventListener('click', handleClick);
+    clear();
+}
+
+// CHECKS IF THE CARS ARE NO MATCH
+
+function noMatch(){
+    disable = true;
+    setTimeout(() => {
+        first.classList.remove('flip');
+        second.classList.remove('flip');
+        clear();
+    }, 800)
+}
+
+function playGame(){
+    
+}
+
+
+
+
+
+
+// CLEARS THE PREVIOUS CLICKS
+
+function clear(){
+    isFlipped = false;
+    disable = false;
+    first = null;
+    second = null;
+}
+
+// RESTARTS THE GAME
+
+function restartGame() {
+    cards.forEach((card) => {
+    card.classList.remove('flip');
+    card.addEventListener('click', handleClick);
+    shuffle(idArray);
+    playGame();
+    clear();
+    })
+}
