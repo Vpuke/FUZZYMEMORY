@@ -100,13 +100,14 @@ function noMatch(){
     }, 800)
 }
 
+// OSÄKER PÅ DENNA FUNKTIONEN, det shufflas inte och vet inte om jag ska göra mer?!
+
 function playGame(){
-    
+    cards.forEach((card, i) =>{
+        card.addEventListener('click', handleClick);
+        shuffle(memoryCardsArray);
+    })
 }
-
-
-
-
 
 
 // CLEARS THE PREVIOUS CLICKS
