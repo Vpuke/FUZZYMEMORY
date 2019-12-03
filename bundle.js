@@ -55,9 +55,7 @@ const cards = [...document.querySelectorAll('.card')];
     })
 };
 
-// I THINK THIS GENERATES PROBLEMS WITH SHUFFLE FUNCTION
 generateMemoryCard();
-
 
 // SHUFFLE FUNCTION FISHER YATES
 
@@ -72,10 +70,6 @@ function shuffle(array){
             return array;
         }
         
-// ADDING CLASS TO CARD
-        
-
-        
 // FUNCTION TO ADD CLASS TO FLIPPED CARD AND SEE IF DATASET IS A MATCH.
         
 function handleClick() {
@@ -89,8 +83,6 @@ function handleClick() {
     second = this;
     first.dataset.id === second.dataset.id ? match() : noMatch();  
 }
-        
-
         
 // CHECKS IF THE CARDS ARE A MATCH
 
@@ -111,7 +103,6 @@ function noMatch(){
     }, 800)
 }
 
-
 // CLEARS THE PREVIOUS CLICKS
 
 function clear(){
@@ -128,17 +119,3 @@ function restartGame() {
     generateMemoryCard();
 
 }
-
-
-//
-// PROBLEM
-//
-// REPLAY SHUFFLAR INTE OM SPELET:
-//
-// SKAPA EN PLAYGAME BUTTON SÅ SPELPLANEN KOMMER UT
-//
-// SKAPA NÅGOT SOM VET OM DU VINNER ELLER INTE.
-//
-//
-//
-
