@@ -10,7 +10,9 @@ let memoryCardsArray = [
 
 ];
 
-const shuffleCards = [... memoryCardsArray, ...memoryCardsArray];
+// duplicate the images array, so shuffle function works properly.
+
+const shuffleCards = [...memoryCardsArray, ...memoryCardsArray];
 
 // CREATE MEMORY CARDS
 
@@ -41,11 +43,16 @@ const createMemoryCard = ( image, index) => {
 };
 
 const generateMemoryCard = () => {
-    shuffleCards.forEach((card, index) => {
+    shuffle(shuffleCards);
+    shuffleCards.forEach((card,) => {
         const imageCard = createMemoryCard(card.image, card.id);
         board.appendChild(stringToHTML(imageCard));
        
     });
+const cards = [...document.querySelectorAll('.card')];
+    cards.forEach((card, i) => {
+        card.addEventListener('click', handleClick)
+    })
 };
 
 // I THINK THIS GENERATES PROBLEMS WITH SHUFFLE FUNCTION
@@ -62,14 +69,12 @@ function shuffle(array){
                 array[i] = array[j];
                 array[j] = x;
             }
-        
             return array;
         }
         
 // ADDING CLASS TO CARD
         
-const cards = [...document.querySelectorAll('.card')];
-const flippedCards = [...document.querySelectorAll('.front-side-card')];
+
         
 // FUNCTION TO ADD CLASS TO FLIPPED CARD AND SEE IF DATASET IS A MATCH.
         
@@ -85,9 +90,7 @@ function handleClick() {
     first.dataset.id === second.dataset.id ? match() : noMatch();  
 }
         
-cards.forEach((card, i) => {
-    card.addEventListener('click', handleClick)
-})
+
         
 // CHECKS IF THE CARDS ARE A MATCH
 
@@ -108,15 +111,6 @@ function noMatch(){
     }, 800)
 }
 
-// OSÄKER PÅ DENNA FUNKTIONEN, det shufflas inte och vet inte om jag ska göra mer?!
-
-// function playGame(){
-//     cards.forEach((card, i) =>{
-//         card.addEventListener('click', handleClick);
-//         shuffle(memoryCardsArray);
-//     })
-// }
-
 
 // CLEARS THE PREVIOUS CLICKS
 
@@ -130,13 +124,9 @@ function clear(){
 // RESTARTS THE GAME
 
 function restartGame() {
-    cards.forEach((card) => {
-    shuffle(shuffleCards);
-    card.classList.remove('flip');
-    card.addEventListener('click', handleClick);
-    // playGame();
-    clear();
-    })
+    board.innerHTML= "";
+    generateMemoryCard();
+
 }
 
 
