@@ -1,14 +1,16 @@
 let memoryCardsArray = [
-    { image:"./images/dizzyhuman.webp" },
-    { image:"./images/donaldduck.webp" },
-    { image:"./images/powerpuff.webp" },
-    { image:"./images/sailormoon.webp" },
-    { image:"./images/snake.webp" },
-    { image:"./images/dog.webp" },
-    { image:"./images/office.webp" },
-    { image:"./images/cutit.webp" },
+    { image:"./images/dizzyhuman.webp", id: "dizzy"},
+    { image:"./images/donaldduck.webp", id: "donald" },
+    { image:"./images/powerpuff.webp", id: "power"},
+    { image:"./images/sailormoon.webp", id: "sailor" },
+    { image:"./images/snake.webp", id: "snake" },
+    { image:"./images/dog.webp", id: "dog" },
+    { image:"./images/office.webp", id: "office" },
+    { image:"./images/cutit.webp", id: "cut" },
 
 ];
+
+const shuffleCards = [... memoryCardsArray, ...memoryCardsArray];
 
 // CREATE MEMORY CARDS
 
@@ -17,10 +19,13 @@ const board = document.querySelector(".board");
 let isFlipped, disable = false;
 let first, second;
 
-// CALLING SHUFFLE 
-shuffle(memoryCardsArray);
 // RESTART GAME ADDED TO BUTTON ON CLICK
+
 restartButton.addEventListener('click', restartGame);
+
+// CALLING SHUFFLE 
+
+shuffle(shuffleCards);
 
 const stringToHTML = str => {
     const div = document.createElement("div");
@@ -36,8 +41,8 @@ const createMemoryCard = ( image, index) => {
 };
 
 const generateMemoryCard = () => {
-    memoryCardsArray.forEach((card, index) => {
-        const imageCard = createMemoryCard(card.image, index);
+    shuffleCards.forEach((card, index) => {
+        const imageCard = createMemoryCard(card.image, card.id);
         board.appendChild(stringToHTML(imageCard));
        
     });
@@ -45,7 +50,7 @@ const generateMemoryCard = () => {
 
 // I THINK THIS GENERATES PROBLEMS WITH SHUFFLE FUNCTION
 generateMemoryCard();
-generateMemoryCard();
+
 
 // SHUFFLE FUNCTION FISHER YATES
 
@@ -126,7 +131,7 @@ function clear(){
 
 function restartGame() {
     cards.forEach((card) => {
-    shuffle(memoryCardsArray);
+    shuffle(shuffleCards);
     card.classList.remove('flip');
     card.addEventListener('click', handleClick);
     // playGame();
@@ -139,8 +144,6 @@ function restartGame() {
 // PROBLEM
 //
 // REPLAY SHUFFLAR INTE OM SPELET:
-//
-// SHUFFLE GÖR SÅ ATT BILDERNA LIGGER LIKADANT PÅ BÅDA RADERNA
 //
 // SKAPA EN PLAYGAME BUTTON SÅ SPELPLANEN KOMMER UT
 //
