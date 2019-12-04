@@ -38,7 +38,7 @@ const stringToHTML = str => {
 const createMemoryCard = ( image, index) => {
     return `<div class="card" data-id="${index}">
     <img class="front-side-card" src="${image}">
-    <img class="back-side-card" src ="./images/hypnotic.jpg">
+    <img class="back-side-card" src ="./images/hypno.jpg">
     </div>`;
 };
 
