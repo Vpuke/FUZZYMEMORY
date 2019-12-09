@@ -30,7 +30,7 @@ Memory created with HTML, CSS, JAVASCRIPT
 
 ## Code review
 
-* Code is reviewed by:
+* Code is reviewed by [Erik Johannesson](https://github.com/erik-joh)
 
 ## License
 
