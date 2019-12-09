@@ -4,7 +4,7 @@ Memory created with HTML, CSS, JAVASCRIPT
 ## Requirements
 
 * There should be at least 8 pairs and a maximum of 10 pairs of cards.
-* The pairs should be randomly positione before a new game starts (and on replay).
+* The pairs should be randomly positioned before a new game starts (and on replay).
 * The project should have a nice graphical user interface (meh).
 * There should be a `replay` button to restart the game when finished.
 * The game should look, feel and work similarly in Google Chrome and Mozilla Firefox.
