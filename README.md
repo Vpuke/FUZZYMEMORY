@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./images/Game.png" alt="Gameboard" width="100%">
+<img src="./images/Game.png" alt="Gameboard" width="50%">
 </p>
 
 ## FUZZYMEMORY
