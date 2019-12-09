@@ -40,6 +40,12 @@ button{
     margin: 4px 2px;
     cursor: pointer;
     border-radius: 25px;
+    
+}
+
+button:hover{
+    background-color:#505050;
+    
 }
 
 .board {
@@ -67,6 +73,11 @@ button{
     -o-transition: transform .4s;
     transition: transform .4s;
     transition: transform .4s, -webkit-transform .4s;
+    transition: all .2s ease-out;
+}
+
+.card:hover{
+    transform: scale(1.1);
 }
 
 .card:active {
