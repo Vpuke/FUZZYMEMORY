@@ -22,7 +22,7 @@ Memory created with HTML, CSS, JAVASCRIPT
 ## Tested by
 
 * [Viktor Sjöblom](https://github.com/viktorsjoblom)
-*
+* [Oskar Turesson](https://github.com/cleanly1)
 
 ## Code review
 
