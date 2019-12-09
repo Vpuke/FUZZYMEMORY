@@ -31,6 +31,13 @@ Memory created with HTML, CSS, JAVASCRIPT
 ## Code review
 
 * Code is reviewed by [Erik Johannesson](https://github.com/erik-joh)
+* bundle.js:14 Maybe rename shuffleCards to duplicatedCards
+* bundle.js:32,38,45 Add some comments for these functions
+* bundle.js:62 Rename x and j to something more describing
+* bundle.js:74-84 It is now possible to click the same card twice.
+  could maybe be fixed by adding another statement to the if statement
+* bundle.js:22 rename first and second to something more describing. 
+
 
 ## License
 
