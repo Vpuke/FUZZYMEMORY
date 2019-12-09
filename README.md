@@ -3,10 +3,12 @@ Memory created with HTML, CSS, JAVASCRIPT
 
 ## Requirements
 
-*
-*
-*
-*
+* There should be at least 8 pairs and a maximum of 10 pairs of cards.
+* The pairs should be randomly positione before a new game starts (and on replay).
+* The project should have a nice graphical user interface (meh).
+* There should be a `replay` button to restart the game when finished.
+* The game should look, feel and work similarly in Google Chrome and Mozilla Firefox.
+* The project can't contain any errors, warnings or notices in the developer console.
 
 ## Getting started
 
@@ -16,6 +18,15 @@ Memory created with HTML, CSS, JAVASCRIPT
 ## Made by
 
 * [Viktor Puke](https://github.com/vpuke) (WU19)
+
+## Tested by
+
+* [Viktor Sjöblom](https://github.com/viktorsjoblom)
+*
+
+## Code review
+
+* Code is reviewed by:
 
 ## License
 
