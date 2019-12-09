@@ -1,3 +1,5 @@
+"strict";
+
 let memoryCardsArray = [
   { image: "./images/dizzyhuman.webp", id: "dizzy" },
   { image: "./images/donaldduck.webp", id: "donald" },
