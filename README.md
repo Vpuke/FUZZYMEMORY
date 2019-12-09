@@ -1,4 +1,6 @@
-# FUZZYMEMORY
+<img src="./images/Game.png" alt="Gameboard" width="100%">
+
+## FUZZYMEMORY
 Memory created with HTML, CSS, JAVASCRIPT
 
 ## Requirements
