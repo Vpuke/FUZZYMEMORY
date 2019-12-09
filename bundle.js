@@ -73,6 +73,9 @@ function shuffle(array) {
 
 function handleClick() {
   if (disable || this === second) return;
+  if (this.classList.contains("flip")) {
+    return;
+  }
   this.classList.toggle("flip");
   if (!isFlipped) {
     isFlipped = true;
