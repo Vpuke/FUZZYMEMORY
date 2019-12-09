@@ -1,4 +1,4 @@
-"strict";
+"use strict";
 
 let memoryCardsArray = [
   { image: "./images/dizzyhuman.webp", id: "dizzy" },
