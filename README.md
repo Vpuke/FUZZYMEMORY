@@ -1,4 +1,6 @@
+<p align="center">
 <img src="./images/Game.png" alt="Gameboard" width="100%">
+</p>
 
 ## FUZZYMEMORY
 Memory created with HTML, CSS, JAVASCRIPT
