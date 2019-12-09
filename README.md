@@ -1,4 +1,4 @@
-<img src="./images/Game.png" alt="Gameboard" width="100%">
+<img src="./images/Game.png" alt="Gameboard" width="75%">
 
 ## FUZZYMEMORY
 Memory created with HTML, CSS, JAVASCRIPT
